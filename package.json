@@ -1,0 +1,23 @@
+{
+  "name": "thingsaroundme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env NODE_ENV=prod node index.js",
+    "dev": "cross-env NODE_ENV=dev nodemon index.js"
+  },
+  "dependencies": {
+    "async": "^2.4.1",
+    "async-es": "^2.4.1",
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "cross-env": "^5.0.1",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.5",
+    "morgan": "^1.8.2",
+    "nconf": "^0.8.4",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0"
+  }
+}

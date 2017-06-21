@@ -1,0 +1,12 @@
+{
+    "name": "thingsaroundme",
+    "alias": [
+        "thingsaroundme"
+    ],
+    "env": {
+        "NODE_ENV": "prod",
+        "eventbrite": "@eventbrite-apikey",
+        "meetup": "@meetup-apikey",
+        "db": ""
+    }
+}

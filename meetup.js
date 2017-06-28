@@ -23,17 +23,37 @@ module.exports = (next) => {
             let meetupData = JSON.parse(body);
             meetupData.forEach((meetup) => {                
                 console.log(meetupData);
-                const curr_meetup_data = {
+                let curr_meetup_data = {
                     name: meetup.name,
                     date: new Date(meetup.time).toISOString(),
                     curr_rsvp_count: meetup.yes_rsvp_count,
                     group_name: meetup.group.name,
-                    url: meetup.link                    
+                    url: meetup.link,                    
                 };
+                if(meetup.venue){
+                    Object.assign(curr_meetup_data, {
+                                venue: {
+                                    id: meetup.venue.id,
+                                    name: meetup.venue.name,
+                                    lat: meetup.venue.lat,
+                                    lon: meetup.venue.lon,
+                                    addr: meetup.venue.address_1,
+                                    city: meetup.venue.city,
+                                    country: meetup.venue.country
+                                }});
+                }else{
+                    Object.assign(curr_meetup_data, {
+                        venue: {
+                            note: "No loc available"
+                        }
+                    });
+                }
+
                 meetupList.push(curr_meetup_data);
             });
             next(null, meetupList);
         }
     });
 };
+
 

@@ -20,7 +20,7 @@ router.get("/meetup", (req, res) => {
         if(err){
             console.log(err);
         }else{
-            res.status(200).json(meetupData);
+            res.status(200).json({length: meetupData.length, meetupData});
         }
     });
 });

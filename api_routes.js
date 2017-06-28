@@ -5,12 +5,12 @@ const eventbrite = require("./eventbrite.js");
 const meetup = require("./meetup.js");
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/eventbrite", (req, res) => {
     eventbrite((err, val) => {
         if(err){
             console.log(err);
         }else{
-            res.status(200).send(val);
+            res.status(200).json({length: val.length, val});
         }        
     });    
 });

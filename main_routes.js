@@ -7,9 +7,4 @@ router.get("/", (req, res) => {
     res.status(200).send("hello, thingsaroundme");
 });
 
-router.get("/*", (req, res) => {
-    res.redirect("/");
-});
-
-
 module.exports = router;

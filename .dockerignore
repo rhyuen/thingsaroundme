@@ -4,3 +4,5 @@ Dockerfile
 keys.json
 .git
 .dockerignore
+README.md
+docker-compose.yml

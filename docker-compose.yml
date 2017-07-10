@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  web:
+    build: "."
+    command: "npm start"
+    ports:
+      - "1990:1990"
+    environment:
+      NODE_ENV: prod
+
+  redis:
+    image: "redis-alpine"
+    environment:
+  mongo:
+    image: "mongo-alpine"
+    environment:

@@ -21,11 +21,38 @@
                 align-content: center;
                 justify-content: flex-end;
             }
+
+            .todo-app{
+                background-color: #ecf0f1;
+                width: 100%;
+                border-radius: 4px 4px 0 0;
+                box-shadow: 0 0 2px 2px rgba(0,0,0,0.1);
+                max-width: calc(100% - 20px);        
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
         </style>
     </head>
     <body>
         <div class = "container">
-            <div>Some stuff is here.</div>
+            <div class = "todo-app">
+                <div class = "todo-app__input">
+                    <input type = "text" placeholder = "Form"></input>
+                    <input type = "button" value = "Add Todo"></input>
+                </div>                
+                <ul class = "todo-app__list">
+                    <li>Text One Two Three</li>
+                    <li>Text One Two Three</li>
+                    <li>Text One Two Three</li>
+                    <li>Text One Two Three</li>
+                    <li>Text One Two Three</li>
+                    <li>Text One Two Three</li>                        
+                </ul>                                
+                <div class = "todo-app__filter">
+                    Filter Stuff.
+                </div>
+            </div>
         </div>
     </body>
 </html>

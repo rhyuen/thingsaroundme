@@ -9,7 +9,10 @@ const PASSWORD = config[process.env.NODE_ENV].redis.password;
 const client = redis.createClient(PORT, HOST, {no_ready_check: true});
 client.auth(PASSWORD, (err) => {
     if(err){
+        //Do a Reconnection on ERR
+        //err.ECONNRESET
         throw err;
+
     }else{
         console.log("Authenticated");
     }
@@ -17,6 +20,9 @@ client.auth(PASSWORD, (err) => {
 
 client.on("connect", () => {
     console.log("Connected to Redis");    
+});
+client.on("error", (err) => {
+    console.log("Redis Error: %s", err);
 });
 
 exports.getCachedVenue = (venueId, done) => {

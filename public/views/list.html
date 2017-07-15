@@ -3,6 +3,7 @@
     <head>
         <title>List of Events</title>
         <style>
+            
             html{
                 font: 600 16px "Helvetica";
             }
@@ -19,39 +20,212 @@
                 display: flex;
                 flex-direction: column;
                 align-content: center;
-                justify-content: flex-end;
+                justify-content: flex-start;
             }
 
             .todo-app{
                 background-color: #ecf0f1;
-                width: 100%;
-                border-radius: 4px 4px 0 0;
+                width: 100%;                
+                border-radius: 0 0 4px 4px;
                 box-shadow: 0 0 2px 2px rgba(0,0,0,0.1);
                 max-width: calc(100% - 20px);        
                 display: flex;
                 align-items: center;
                 flex-direction: column;
             }
+
+            .todo-app__todo-list{
+                list-style: none;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                display: flex;                
+                flex-direction: column-reverse;
+                order: 0;                
+            }
+
+            [class^="todo-app__todo-list__item"]{
+                cursor: pointer;
+                height: 80px;
+                display: block;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #af544f;
+                box-sizing: border-box;
+                padding: 27px 33px 0 78px;                                
+                box-shadow: 0 -1px 0 0 white, 0 -2px 0 0 #e6e6e6;
+
+            }
+            .todo-app__todo-list__item--completed{
+                color: #16a085;
+            }
+
+            .todo-app__add-todo{
+                width: 100%;
+                position: relative;
+                height: 89px;
+                margin: 2px 0 1px;
+            }
+             .todo-app__add-todo__button{
+                position: absolute;
+                display: block;
+                width: 60px;
+                height: 100%;
+                background: transparent;
+                color: rgba(0,0,0,0);
+                border: 0;
+                left: 0;
+                top: 0;
+                background-position: 28px 16px;
+                cursor: pointer;                
+            }
+            .todo-app__add-todo__button:focus{
+                outline: none;
+            }
+            .todo-app__add-todo__input{
+                border: 0;
+                font-size: 1rem;
+                height: 100%;
+                background: transparent;
+                box-sizing: border-box;
+                padding-left: 80px;
+                width: 100%;
+                color: #666;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-weight: 600;
+            }
+            .todo-app__add-todo__input:focus{
+                outline:none;
+                background: rgba(0,0,0,0.1);
+            }
+            .todo-app__add-todo__input::placeholder{
+                color: #b3b3b3;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                opacity: 1;
+            }
+            .todo-app__filter{
+                height: 80px;
+                background: #2c3e80;
+                box-sizing: border-box;
+                color: #ecf0f1;
+                width: calc(100% + 20px);
+                padding: 32px 35px 0;
+                box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
+                font-weight: 700;
+                border: 0;
+                border-radius: 0 0 3px 3px;
+                order: -1;
+            }
+            .todo-app__filter__title{
+                float: left;
+            }
+            .todo-app__filter__title{
+                display: inline-block;
+                margin-right: 30px;
+            }
+            [class^="todo-app__filter__label"]{
+                cursor: pointer;
+                position: relative;
+                display: inline-block;
+                padding-left: 16px;
+                color: rgba(236, 240, 241, 0.3);
+            }
+            [class^="todo-app__filter__label"]:hover{
+                color: #ccc;
+            }
+            .todo-app__filter__label__radio:checked + [class^="todo-app__filter__label__text"]{
+                color: white;
+            }
+
+            [class^="todo-app__filter__label"]::before, .todo-app__filter__label__text--all::after{
+                content: "";
+                top: 5px;
+                width: 10px;
+                height: 10px;
+                border-radius: 5px;
+                display: inline-block;
+                position: absolute;
+                box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
+                background: #647380;
+                left: 0;
+            }
+            .todo-app__filter__label__radio{
+                position: absolute;
+                opacity: 0;
+            }
+            .todo-app__filter__label--all{
+                padding-left: 21px;
+            }
+            .todo-app__filter__label--all:after{
+                left: 5px;
+            }
+
+            .todo-app__filter__label__radio:checked + .todo-app__filter__label__text--all::before{
+                background: #af544f;
+            }
+            .todo-app__filter__label__radio:checked + .todo-app__filter__label__text--all::after{
+                background: #16a085;
+            }
+
+            @media only screen and (min-width: 730px){
+                .container{
+                    max-width: 720px;
+                    justify-content: flex-end;
+                }
+                .todo-app{
+                    border-radius: 4px 4px 0 0;
+                }
+                .todo-app__todo-list{
+                    order: -1;
+                    flex-direction: column;
+                }
+                [class^="todo-app__todo-list"]{
+                    box-shadow: 0 1px 0 0 #e6e6e6, 0 2px 0 0 white;
+                }
+                .todo-app__filter{
+                    order: 0;
+                    border-radius: 3px 3px 0 0;
+                }
+                
+            }
+           
         </style>
     </head>
     <body>
         <div class = "container">
             <div class = "todo-app">
-                <div class = "todo-app__input">
-                    <input type = "text" placeholder = "Form"></input>
-                    <input type = "button" value = "Add Todo"></input>
+                <div class = "todo-app__add-todo">
+                    <input type = "text" placeholder="Add todo" class = "todo-app__add-todo__input"></input>
+                    <input type = "button" value = "Add Todo" class = "todo-app__add-todo__button"></input>
                 </div>                
-                <ul class = "todo-app__list">
-                    <li>Text One Two Three</li>
-                    <li>Text One Two Three</li>
-                    <li>Text One Two Three</li>
-                    <li>Text One Two Three</li>
-                    <li>Text One Two Three</li>
-                    <li>Text One Two Three</li>                        
+                <ul class = "todo-app__todo-list">
+                    <li class = "todo-app__todo-list__item--active">Text One Two Three</li>
+                    <li class = "todo-app__todo-list__item--active">Text One Two Three</li>
+                    <li class = "todo-app__todo-list__item--active">Text One Two Three</li>
+                    <li class = "todo-app__todo-list__item--active">Text One Two Three</li>
+                    <li class = "todo-app__todo-list__item--completed">Text One Two Three</li>                                            
+                    <li class = "todo-app__todo-list__item--completed">Text One Two Three</li>                        
+                    <li class = "todo-app__todo-list__item--active">Text One Two Three</li>
+                    <li class = "todo-app__todo-list__item--active">Text One Two Three</li>
+                    <li class = "todo-app__todo-list__item--completed">Text One Two Three</li>                        
                 </ul>                                
-                <div class = "todo-app__filter">
-                    Filter Stuff.
-                </div>
+                <fieldset class = "todo-app__filter">
+                    <legend class = "todo-app__filter__title">Reveal Stuff</legend>
+                    <label class = "todo-app__filter__label">
+                        <input type = "radio" class = "todo-app__filter__label__radio" checked = "checked"></input>
+                        <span class = "todo-app__filter__filter__label__text--all">All</span>
+                    </label>
+                    <label class = "todo-app__filter__label">
+                        <input type = "radio" class = "todo-app__filter__label__radio"></input>
+                        <span class = "todo-app__filter__filter__label__text">Active</span>
+                    </label>
+                    <label class = "todo-app__filter__label">
+                        <input type = "radio" class = "todo-app__filter__label__radio"></input>
+                        <span class = "todo-app__filter__filter__label__text">Completed</span>
+                    </label>
+                </fieldset>
             </div>
         </div>
     </body>

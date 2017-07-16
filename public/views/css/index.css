@@ -1,5 +1,5 @@
 html{
-    font: 600 16px "Helvetica";
+    font: 400 14px "Helvetica";
 }
 body{
     background: #bdc3c7;
@@ -11,11 +11,26 @@ body{
     width: 100%;
     position: relative;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: flex-end;
+    display: flex;    
+    align-content: center;    
 }
-.column{
-    display: inline-block;
+.column{    
+    background: white;
+    box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
+}
+
+.item{
+    box-sizing: border-box;
+    height: 70px;    
+    padding: 5px 20px;
+    margin: 5px 5px;
+}
+.item__name{
+    background: pink;
+}
+.item__name a{
+    text-decoration: none;
+}
+.item__date{
+
 }

@@ -94,10 +94,7 @@ module.exports = (next) =>{
                                             container.push(...curr_container);                       
                                         }                        
                                     });
-                                }else{
-                                    console.log("Cached locationId exists: %s", stored_location);
-                                    
-                                    //TODO: Use cache values.                                    
+                                }else{                                    
                                     curr_container.push({
                                                 name: item.name.text,
                                                 startTime: item.start.local,
@@ -106,7 +103,7 @@ module.exports = (next) =>{
                                                 currency: item.currency,
                                                 free: item.is_free,
                                                 language: item.locale,
-                                                venue_name: stored_location.name,
+                                                venue_name: (stored_location.venue_name === "null") ? "None Listed": stored_location.venue_name,
                                                 lat: stored_location.lat,
                                                 lon: stored_location.lon
                                             });

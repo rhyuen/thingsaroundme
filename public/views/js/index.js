@@ -1,6 +1,5 @@
 "use strict";
 
-console.log("hi");
 $.getJSON("/api/eventbrite", (eventbrite_data) => {
     console.log(eventbrite_data);
     let eventData = eventbrite_data.val;
@@ -25,6 +24,14 @@ $.getJSON("/api/meetup", (meetup_data) => {
             .append($("<div/>", {text: ev.group_name}))
             .append($("<div/>", {class: "item__date", text: formatDate(ev.date)}))));
     });
+});
+
+$.getJSON("/api/movies", (movie_data) => {
+    movie_data.movieData.forEach((ev) => {
+        $("#mp--mo")
+            .append($("<div/>", {class: "item", text: ev.name})
+            .append($("<div/>", {text: ev.movies})));
+    })
 });
 
 function formatDate(unformmated){

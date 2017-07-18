@@ -14,7 +14,7 @@ client.auth(PASSWORD, (err) => {
         throw err;
 
     }else{
-        console.log("Authenticated");
+        console.log("Authenticated to Redis.");
     }
 });
 

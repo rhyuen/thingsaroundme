@@ -1,7 +1,7 @@
 "use strict";
 
 const request = require("request");
-const config = require("./config.js");
+const config = require("../config.js");
 const targetURL = "http://api.meetup.com/find/events";
 const apiKey = config[process.env.NODE_ENV].meetup;
 

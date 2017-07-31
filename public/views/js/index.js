@@ -29,10 +29,14 @@ $.getJSON("/api/meetup", (meetup_data) => {
 $.getJSON("/api/movies", (movie_data) => {
     movie_data.movieData.forEach((ev) => {
         $("#mp--mo")
-            .append($("<div/>", {class: "item", text: ev.name})
+            .append($("<div/>", {class: "item", text: removeMovieWords(ev.name)})
             .append($("<div/>", {text: ev.movies})));
-    })
+    });
 });
+
+function removeMovieWords(unformatted){
+    return unformatted.replace(/(Theatre|Cineplex|Cinemas|Vancouver|Odeon)/g, "");
+};
 
 function formatDate(unformmated){
     "2017-07-16T20:15:00.000Z"

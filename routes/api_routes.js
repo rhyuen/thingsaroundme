@@ -1,9 +1,9 @@
 "use strict";
 
 const express = require("express");
-const eventbrite = require("./eventbrite.js");
-const meetup = require("./meetup.js");
-const movies = require("./movies.js");
+const eventbrite = require("../dataretrieval/eventbrite.js");
+const meetup = require("../dataretrieval/meetup.js");
+const movies = require("../dataretrieval/movies.js");
 const router = express.Router();
 
 router.get("/eventbrite", (req, res) => {

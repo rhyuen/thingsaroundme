@@ -1,6 +1,10 @@
 ### About
 
-### Install
-
 ### Running Locally
+> ### Dependencies
+> ### Install
+
+### Running on Docker
+
+### Deploying now.sh
 

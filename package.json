@@ -7,13 +7,15 @@
     "start": "cross-env NODE_ENV=prod node index.js",
     "dev": "cross-env NODE_ENV=dev nodemon index.js",
     "redistest": "cross-env NODE_ENV=prod node tester2.js",
-    "meetuptest": "cross-env NODE_ENV=dev node tester3.js"
+    "meetuptest": "cross-env NODE_ENV=dev node tester3.js",
+    "fedev": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js"
   },
   "dependencies": {
     "async": "^2.4.1",
     "async-es": "^2.4.1",
     "body-parser": "^1.17.2",
     "cheerio": "^1.0.0-rc.1",
+    "cors": "^2.8.4",
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
     "mongoose": "^4.10.5",
@@ -21,7 +23,32 @@
     "nconf": "^0.8.4",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "redis": "^2.7.1",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "serve-static": "^1.12.3",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "compression-webpack-plugin": "^1.0.0",
+    "html-webpack-plugin": "^2.29.0",
+    "react-hot-loader": "^1.3.1",
+    "uglifyjs-webpack-plugin": "beta",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ]
   }
 }

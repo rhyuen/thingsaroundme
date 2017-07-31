@@ -2,8 +2,8 @@
 
 const request = require("request");
 const async = require("async");
-const config = require("./config.js");
-const cache = require("./redisconn.js");
+const config = require("../config.js");
+const cache = require("../redisconn.js");
 const apiKey = config[process.env.NODE_ENV].eventbrite;
 const token = `?token=${apiKey}`;
 

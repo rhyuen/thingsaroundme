@@ -7,6 +7,12 @@
         "NODE_ENV": "prod",
         "eventbrite": "@eventbrite-apikey",
         "meetup": "@meetup-apikey",
-        "db": ""
+        "redis": "@redis-apikey",
+        "db": "@thingsaroundmedb"
+    },
+    "public": "true",
+    "type": "npm",
+    "engines": {
+        "node": "^8.1.4"
     }
 }

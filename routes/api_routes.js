@@ -7,11 +7,14 @@ const movies = require("../dataretrieval/movies.js");
 const router = express.Router();
 
 router.get("/eventbrite", (req, res) => {
-    eventbrite((err, val) => {
+    eventbrite((err, eventbriteData) => {
         if(err){
             console.log(err);
         }else{
-            res.status(200).json({length: val.length, val});
+            res.status(200).json({
+                    length: eventbriteData.length, 
+                    eventbriteData
+                });
         }        
     });    
 });
@@ -21,7 +24,10 @@ router.get("/meetup", (req, res) => {
         if(err){
             console.log(err);
         }else{
-            res.status(200).json({length: meetupData.length, meetupData});
+            res.status(200).json({
+                length: meetupData.length, 
+                meetupData
+            });
         }
     });
 });
@@ -31,7 +37,10 @@ router.get("/movies", (req, res) => {
         if(err){
             console.log(err);
         }else{
-            res.status(200).json({length: movieData.length, movieData});
+            res.status(200).json({
+                length: movieData.length, 
+                movieData
+            });
         }
     });
 });

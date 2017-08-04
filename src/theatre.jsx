@@ -13,9 +13,9 @@ class Theatre extends Component{
     }
 
     render(){        
-        let list_of_movies = this.props.movieList.map((movie) => {
+        let list_of_movies = this.props.movieList.map((movie, index) => {
             return (                
-                <Movie movieName = {movie.name} movieTimes = {movie.showtimes}/>                
+                <Movie key = {index} movieName = {movie.name} movieTimes = {movie.showtimes}/>                
             );
         });
 

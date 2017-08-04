@@ -5,9 +5,9 @@ class Movie extends Component{
     
 
     render(){
-        let list_of_times = this.props.movieTimes.map((show) => {
+        let list_of_times = this.props.movieTimes.map((show, index) => {
             return (
-                <li>{show.type} | {show.time}</li>
+                <li key = {index}>{show.type} | {show.time}</li>
             );
         });
 
